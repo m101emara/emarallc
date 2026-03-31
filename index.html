@@ -410,6 +410,19 @@
       min-width: min(580px, 100%);
     }
 
+    .admin-only,
+    .admin-only-inline {
+      display: none !important;
+    }
+
+    body.admin-mode .admin-only {
+      display: block !important;
+    }
+
+    body.admin-mode .admin-only-inline {
+      display: inline-flex !important;
+    }
+
     .cta {
       text-align: center;
       padding-bottom: 80px;
@@ -498,9 +511,9 @@
       <nav class="nav">
         <a href="#platform">Platform</a>
         <a href="#architecture">Architecture</a>
-        <a href="#pitch-link">Pitch Deck</a>
+        <a href="#pitch-link" class="admin-only-inline">Pitch Deck</a>
         <a href="#investor">Investor Story</a>
-        <a href="#demo" class="btn secondary">Watch Demo Flow</a>
+        <a href="#demo" class="btn secondary admin-only-inline">Watch Demo Flow</a>
       </nav>
     </div>
   </header>
@@ -519,7 +532,7 @@
           </p>
           <div class="hero-actions">
             <a class="btn primary" href="#demo">Request Investor Demo</a>
-            <a class="btn secondary" href="pitch-deck.html">Open Pitch Deck</a>
+            <a class="btn secondary admin-only-inline" href="pitch-deck.html">Open Pitch Deck</a>
           </div>
         </div>
 
@@ -644,7 +657,7 @@
       </div>
     </section>
 
-    <section id="pitch-link">
+    <section id="pitch-link" class="admin-only">
       <div class="container">
         <h2 class="section-title reveal">Pitch Deck Page (Shareable Link)</h2>
         <p class="section-copy reveal">Your pitch deck is a separate page. Open it directly or copy the link and share it with investors.</p>
@@ -658,7 +671,7 @@
       </div>
     </section>
 
-    <section id="demo" class="cta">
+    <section id="demo" class="cta admin-only">
       <div class="container">
         <div class="panel reveal">
           <h2 class="section-title">Ready for Alibaba Program Submission</h2>
@@ -672,6 +685,19 @@
   </main>
 
   <script>
+    const params = new URLSearchParams(window.location.search);
+    const adminParam = params.get('admin');
+    if (adminParam === '1') {
+      localStorage.setItem('emarallc-admin', '1');
+    } else if (adminParam === '0') {
+      localStorage.removeItem('emarallc-admin');
+    }
+
+    const isAdminMode = localStorage.getItem('emarallc-admin') === '1';
+    if (isAdminMode) {
+      document.body.classList.add('admin-mode');
+    }
+
     const items = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       for (const entry of entries) {
