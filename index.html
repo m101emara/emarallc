@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Emara AI | Industrial Intelligence for Coatings</title>
+  <meta name="description" content="Emara AI is the intelligence layer for paint manufacturing: formulation optimization, defect diagnosis, and AI-powered manufacturing workflows." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #071018;
+      --panel: #0d1b27;
+      --panel-2: #122435;
+      --text: #e7f2fb;
+      --muted: #9eb3c6;
+      --line: #1d3b55;
+      --brand: #2ec5ff;
+      --brand-2: #7bf1a8;
+      --alert: #ffbe5c;
+      --max: 1180px;
+      --radius: 18px;
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle at 10% -10%, #12324d 0%, transparent 45%),
+                  radial-gradient(circle at 90% 110%, #11423e 0%, transparent 45%),
+                  var(--bg);
+      color: var(--text);
+      font-family: "Space Grotesk", "Segoe UI", sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      margin: 0;
+      font-family: "Sora", "Segoe UI", sans-serif;
+      letter-spacing: -0.02em;
+    }
+
+    p {
+      margin: 0;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    .container {
+      width: min(var(--max), 92vw);
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(12px);
+      background: rgba(7, 16, 24, 0.72);
+      border-bottom: 1px solid rgba(46, 197, 255, 0.15);
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
+    }
+
+    .logo {
+      font-family: "Sora", "Segoe UI", sans-serif;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+      font-size: 1.05rem;
+    }
+
+    .logo span {
+      color: var(--brand);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      color: #cfe4f5;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    .btn {
+      border: 0;
+      border-radius: 999px;
+      padding: 11px 18px;
+      font-weight: 700;
+      font-family: "Sora", "Segoe UI", sans-serif;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 200ms ease, box-shadow 200ms ease, opacity 200ms ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn.primary {
+      background: linear-gradient(120deg, var(--brand), #2f8dff);
+      color: #04101c;
+      box-shadow: 0 12px 30px rgba(46, 197, 255, 0.28);
+    }
+
+    .btn.secondary {
+      background: rgba(18, 36, 53, 0.75);
+      color: var(--text);
+      border: 1px solid var(--line);
+    }
+
+    .hero {
+      padding: 86px 0 56px;
+      position: relative;
+      overflow: clip;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(123, 241, 168, 0.35);
+      padding: 8px 14px;
+      font-size: 0.84rem;
+      color: #bafdd7;
+      background: rgba(16, 52, 43, 0.5);
+      margin-bottom: 18px;
+    }
+
+    .hero-grid {
+      display: grid;
+      gap: 26px;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.1rem, 5.4vw, 4.2rem);
+      line-height: 1.08;
+    }
+
+    .hero h1 .grad {
+      background: linear-gradient(110deg, #77ffd3, #3cc8ff 35%, #8ca8ff 75%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      margin-top: 18px;
+      font-size: clamp(1rem, 1.9vw, 1.2rem);
+      max-width: 60ch;
+    }
+
+    .hero-actions {
+      margin-top: 26px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .panel {
+      background: linear-gradient(180deg, rgba(13, 27, 39, 0.9), rgba(9, 20, 31, 0.92));
+      border: 1px solid rgba(46, 197, 255, 0.2);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      padding: 18px;
+    }
+
+    .hero-card h3 {
+      font-size: 0.92rem;
+      color: #c6deef;
+      margin-bottom: 10px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .chat-bubble {
+      padding: 10px 12px;
+      border-radius: 14px;
+      margin-bottom: 10px;
+      font-size: 0.92rem;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .chat-bubble.ask {
+      background: rgba(19, 36, 52, 0.8);
+    }
+
+    .chat-bubble.answer {
+      background: rgba(16, 49, 39, 0.75);
+      border-color: rgba(123, 241, 168, 0.3);
+      color: #ceffe4;
+    }
+
+    section {
+      padding: 56px 0;
+    }
+
+    .section-title {
+      font-size: clamp(1.55rem, 3vw, 2.55rem);
+      margin-bottom: 12px;
+    }
+
+    .section-copy {
+      max-width: 70ch;
+      margin-bottom: 22px;
+    }
+
+    .stats {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .stat {
+      padding: 18px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(18, 36, 53, 0.8), rgba(11, 22, 32, 0.8));
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.58rem;
+      color: #dff5ff;
+      margin-bottom: 5px;
+      font-family: "Sora", "Segoe UI", sans-serif;
+    }
+
+    .stack {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .stack-card {
+      padding: 18px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(18, 36, 53, 0.65);
+      min-height: 210px;
+    }
+
+    .stack-card h3 {
+      font-size: 1.08rem;
+      margin-bottom: 10px;
+    }
+
+    .stack-card ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 0.95rem;
+    }
+
+    .demo {
+      display: grid;
+      grid-template-columns: 270px 1fr;
+      gap: 14px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(123, 241, 168, 0.22);
+      background: linear-gradient(180deg, rgba(10, 22, 33, 0.95), rgba(9, 18, 28, 0.95));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .demo-sidebar {
+      padding: 16px;
+      border-right: 1px solid rgba(46, 197, 255, 0.14);
+      background: rgba(10, 20, 30, 0.78);
+    }
+
+    .demo-sidebar h4 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #85bfd8;
+      margin-bottom: 12px;
+    }
+
+    .nav-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 9px;
+      background: rgba(17, 33, 49, 0.72);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 10px;
+      padding: 10px;
+      font-size: 0.9rem;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--brand-2);
+    }
+
+    .demo-main {
+      padding: 16px;
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      align-items: stretch;
+    }
+
+    .tile {
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(13, 27, 40, 0.8);
+      padding: 14px;
+    }
+
+    .tile h4 {
+      font-size: 0.95rem;
+      margin-bottom: 10px;
+    }
+
+    .code-line {
+      height: 8px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(46, 197, 255, 0.42), rgba(46, 197, 255, 0.1));
+      margin-bottom: 8px;
+    }
+
+    .arch {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+    }
+
+    .arch img {
+      width: 100%;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: rgba(8, 18, 26, 0.82);
+      padding: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .screens {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .screens img {
+      width: 100%;
+      display: block;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(8, 18, 26, 0.82);
+      box-shadow: var(--shadow);
+    }
+
+    .deck-share {
+      padding: 22px;
+      border-radius: 16px;
+      border: 1px solid rgba(123, 241, 168, 0.28);
+      background: linear-gradient(120deg, rgba(16, 38, 55, 0.9), rgba(10, 25, 37, 0.95));
+      display: grid;
+      gap: 14px;
+    }
+
+    .share-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .share-url {
+      border: 1px solid var(--line);
+      background: rgba(7, 18, 28, 0.92);
+      color: #d4e8f8;
+      border-radius: 10px;
+      padding: 11px 14px;
+      font-size: 0.95rem;
+      min-width: min(580px, 100%);
+    }
+
+    .cta {
+      text-align: center;
+      padding-bottom: 80px;
+    }
+
+    .cta .panel {
+      padding: 36px 20px;
+      border-color: rgba(46, 197, 255, 0.25);
+      background: linear-gradient(120deg, rgba(14, 31, 46, 0.95), rgba(9, 19, 29, 0.95));
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 600ms ease, transform 600ms ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .typing::after {
+      content: "";
+      display: inline-block;
+      width: 8px;
+      height: 1em;
+      margin-left: 5px;
+      background: #9ce8ff;
+      animation: blink 1s steps(1, end) infinite;
+      vertical-align: text-bottom;
+    }
+
+    @keyframes blink {
+      0%, 45% { opacity: 1; }
+      46%, 100% { opacity: 0; }
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .arch {
+        grid-template-columns: 1fr;
+      }
+
+      .stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .stack {
+        grid-template-columns: 1fr;
+      }
+
+      .demo {
+        grid-template-columns: 1fr;
+      }
+
+      .demo-main {
+        grid-template-columns: 1fr;
+      }
+
+      .screens {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .topbar-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 70px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="logo">Emara <span>AI</span></div>
+      <nav class="nav">
+        <a href="#platform">Platform</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#pitch-link">Pitch Deck</a>
+        <a href="#investor">Investor Story</a>
+        <a href="#demo" class="btn secondary">Watch Demo Flow</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="reveal">
+          <div class="badge">Industrial AI for Coatings and Paint Manufacturing</div>
+          <h1>
+            The <span class="grad">Intelligence Layer</span><br />
+            For Modern Paint Factories
+          </h1>
+          <p>
+            Emara AI transforms formulation design, defect diagnosis, and technical reporting into a fast, repeatable, and data-grounded workflow powered by RAG and specialized AI agents.
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#demo">Request Investor Demo</a>
+            <a class="btn secondary" href="pitch-deck.html">Open Pitch Deck</a>
+          </div>
+        </div>
+
+        <aside class="panel hero-card reveal">
+          <h3>Live Assistant Simulation</h3>
+          <div class="chat-bubble ask">Operator: Why is this exterior batch cracking after drying?</div>
+          <div class="chat-bubble answer typing" id="typed-output">AI: Likely binder rigidity + solvent ratio imbalance. Recommend plasticizer adjustment and staged cure profile.</div>
+          <div class="chat-bubble ask">System: Confidence 91% from 1,432 related documents and 88 historical production logs.</div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="investor">
+      <div class="container">
+        <h2 class="section-title reveal">Built for Scale, Not Consulting</h2>
+        <p class="section-copy reveal">
+          Emara AI is a multi-client industrial SaaS platform. We continuously process technical documents and production data for real-time inference, cross-plant insights, and defensible model performance.
+        </p>
+        <div class="stats">
+          <article class="stat reveal"><strong>40%</strong> Faster formulation cycles</article>
+          <article class="stat reveal"><strong>28%</strong> Lower defect rework rate</article>
+          <article class="stat reveal"><strong>3x</strong> Faster technical reporting</article>
+          <article class="stat reveal"><strong>24/7</strong> AI support for plant teams</article>
+        </div>
+      </div>
+    </section>
+
+    <section id="platform">
+      <div class="container">
+        <h2 class="section-title reveal">SaaS Platform Preview</h2>
+        <p class="section-copy reveal">A convincing product narrative for investor review: one dashboard, three outcomes, measurable operational value.</p>
+
+        <div class="demo reveal">
+          <div class="demo-sidebar">
+            <h4>Navigation</h4>
+            <div class="nav-item"><span>AI Chat Assistant</span><span class="dot"></span></div>
+            <div class="nav-item"><span>Formulation Studio</span><span class="dot"></span></div>
+            <div class="nav-item"><span>QC Defect Analytics</span><span class="dot"></span></div>
+            <div class="nav-item"><span>Auto Documentation</span><span class="dot"></span></div>
+          </div>
+          <div class="demo-main">
+            <article class="tile">
+              <h4>AI Chat</h4>
+              <p>Natural-language troubleshooting with grounded answers from internal technical knowledge.</p>
+              <div class="code-line" style="width: 90%"></div>
+              <div class="code-line" style="width: 68%"></div>
+              <div class="code-line" style="width: 82%"></div>
+            </article>
+            <article class="tile">
+              <h4>Formulation Studio</h4>
+              <p>Simulate binder, pigment, and additive trade-offs before physical trial runs.</p>
+              <div class="code-line" style="width: 76%"></div>
+              <div class="code-line" style="width: 88%"></div>
+              <div class="code-line" style="width: 54%"></div>
+            </article>
+            <article class="tile">
+              <h4>QC Analytics</h4>
+              <p>Defect trend detection and root-cause recommendations by batch and line.</p>
+              <div class="code-line" style="width: 80%"></div>
+              <div class="code-line" style="width: 72%"></div>
+              <div class="code-line" style="width: 60%"></div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2 class="section-title reveal">Core System Layers</h2>
+        <div class="stack">
+          <article class="stack-card reveal">
+            <h3>Knowledge and Data</h3>
+            <ul>
+              <li>Formulations, QC reports, SDS and TDS documents</li>
+              <li>Production logs and defect history</li>
+              <li>Secure connectors and ingestion pipelines</li>
+            </ul>
+          </article>
+          <article class="stack-card reveal">
+            <h3>AI Intelligence</h3>
+            <ul>
+              <li>Parsing and embeddings for retrieval</li>
+              <li>Vector search and semantic grounding</li>
+              <li>Specialized agents for formulation, QC, and docs</li>
+            </ul>
+          </article>
+          <article class="stack-card reveal">
+            <h3>Product and Operations</h3>
+            <ul>
+              <li>Web dashboard and API layer</li>
+              <li>Workflow automation and report generation</li>
+              <li>Multi-tenant cloud deployment model</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="architecture">
+      <div class="container arch">
+        <div class="reveal">
+          <h2 class="section-title">Architecture Diagram</h2>
+          <p class="section-copy">Purpose-built for AI programs and technical due diligence. This visual is presentation-ready for website and pitch deck insertion.</p>
+          <a class="btn secondary" href="architecture.svg" target="_blank" rel="noreferrer">Open Full Architecture Asset</a>
+        </div>
+        <div class="reveal">
+          <img src="architecture.svg" alt="Emara AI architecture diagram" />
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2 class="section-title reveal">Product Screenshots</h2>
+        <p class="section-copy reveal">Use these visuals in your Alibaba submission form, website, and investor deck to present a real product narrative from day one.</p>
+        <div class="screens">
+          <img class="reveal" src="product-chat.svg" alt="Emara AI chat assistant mock screenshot" />
+          <img class="reveal" src="product-formulation.svg" alt="Formulation studio mock screenshot" />
+          <img class="reveal" src="product-qc.svg" alt="QC analytics dashboard mock screenshot" />
+        </div>
+      </div>
+    </section>
+
+    <section id="pitch-link">
+      <div class="container">
+        <h2 class="section-title reveal">Pitch Deck Page (Shareable Link)</h2>
+        <p class="section-copy reveal">Your pitch deck is a separate page. Open it directly or copy the link and share it with investors.</p>
+        <div class="deck-share reveal">
+          <div class="share-row">
+            <a class="btn primary" href="pitch-deck.html" target="_blank" rel="noreferrer">Open Pitch Deck Page</a>
+            <button id="copyDeckLink" class="btn secondary" type="button">Copy Share Link</button>
+          </div>
+          <div id="deckUrl" class="share-url">/pitch-deck.html</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="demo" class="cta">
+      <div class="container">
+        <div class="panel reveal">
+          <h2 class="section-title">Ready for Alibaba Program Submission</h2>
+          <p class="section-copy" style="margin: 0 auto 22px; max-width: 65ch;">
+            Use this package as your complete submission stack: deployable website, architecture visual, investor deck, and a polished demo narrative.
+          </p>
+          <a href="demo-script.md" class="btn primary">Open Demo Script</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const items = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      }
+    }, { threshold: 0.14 });
+
+    for (const item of items) {
+      observer.observe(item);
+    }
+
+    // Lightweight loop to keep the hero response feeling live during demos.
+    const typedOutput = document.getElementById('typed-output');
+    const phrases = [
+      'AI: Likely binder rigidity + solvent ratio imbalance. Recommend plasticizer adjustment and staged cure profile.',
+      'AI: Top risk indicators: humidity variance, rapid cure cycle, and high film stress in current batch.',
+      'AI: Suggested action plan generated with references from historical defects and technical documents.'
+    ];
+    let idx = 0;
+
+    setInterval(() => {
+      idx = (idx + 1) % phrases.length;
+      typedOutput.textContent = phrases[idx];
+    }, 3800);
+
+    const deckUrlEl = document.getElementById('deckUrl');
+    const copyDeckBtn = document.getElementById('copyDeckLink');
+    const absoluteDeckUrl = `${window.location.origin}/pitch-deck.html`;
+    deckUrlEl.textContent = absoluteDeckUrl;
+
+    copyDeckBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(absoluteDeckUrl);
+        copyDeckBtn.textContent = 'Copied';
+        setTimeout(() => {
+          copyDeckBtn.textContent = 'Copy Share Link';
+        }, 1400);
+      } catch {
+        copyDeckBtn.textContent = 'Copy Failed';
+      }
+    });
+  </script>
+</body>
+</html>

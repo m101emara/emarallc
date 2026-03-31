@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="840" viewBox="0 0 1400 840">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#08141f"/>
+      <stop offset="100%" stop-color="#12283a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1400" height="840" fill="url(#bg)"/>
+  <rect x="70" y="60" width="1260" height="720" rx="24" fill="#0d1f2d" stroke="#22445d"/>
+  <text x="110" y="118" fill="#e1f2ff" font-size="34" font-family="Sora, Segoe UI, sans-serif" font-weight="800">Formulation Studio</text>
+
+  <rect x="110" y="154" width="560" height="290" rx="18" fill="#10283b" stroke="#2b5a79"/>
+  <text x="142" y="204" fill="#d7eaf8" font-size="24" font-family="Sora, Segoe UI, sans-serif" font-weight="700">Current Formula</text>
+  <text x="142" y="246" fill="#a8c2d6" font-size="22" font-family="Space Grotesk, Segoe UI, sans-serif">Binder ............. 32%</text>
+  <text x="142" y="284" fill="#a8c2d6" font-size="22" font-family="Space Grotesk, Segoe UI, sans-serif">Pigment ............ 18%</text>
+  <text x="142" y="322" fill="#a8c2d6" font-size="22" font-family="Space Grotesk, Segoe UI, sans-serif">Solvent ............ 27%</text>
+  <text x="142" y="360" fill="#a8c2d6" font-size="22" font-family="Space Grotesk, Segoe UI, sans-serif">Additives .......... 23%</text>
+
+  <rect x="700" y="154" width="590" height="290" rx="18" fill="#0f3428" stroke="#2a715a"/>
+  <text x="732" y="204" fill="#d6ffe9" font-size="24" font-family="Sora, Segoe UI, sans-serif" font-weight="700">AI Optimization Recommendation</text>
+  <text x="732" y="252" fill="#c2efd9" font-size="22" font-family="Space Grotesk, Segoe UI, sans-serif">Binder: 30.5%  (-1.5%)</text>
+  <text x="732" y="290" fill="#c2efd9" font-size="22" font-family="Space Grotesk, Segoe UI, sans-serif">Plasticizer: +2.5%</text>
+  <text x="732" y="328" fill="#c2efd9" font-size="22" font-family="Space Grotesk, Segoe UI, sans-serif">Solvent blend: rebalance for slower flash-off</text>
+  <text x="732" y="366" fill="#c2efd9" font-size="22" font-family="Space Grotesk, Segoe UI, sans-serif">Expected cracking risk reduction: 31%</text>
+
+  <rect x="110" y="474" width="1180" height="260" rx="18" fill="#102538" stroke="#2a5672"/>
+  <text x="142" y="524" fill="#d8ecfa" font-size="24" font-family="Sora, Segoe UI, sans-serif" font-weight="700">Predicted Performance</text>
+  <rect x="142" y="560" width="220" height="18" rx="9" fill="#1a3e57"/>
+  <rect x="142" y="560" width="170" height="18" rx="9" fill="#2ec5ff"/>
+  <text x="378" y="575" fill="#a8c2d6" font-size="20" font-family="Space Grotesk, Segoe UI, sans-serif">Adhesion Stability: 77%</text>
+
+  <rect x="142" y="600" width="220" height="18" rx="9" fill="#1a3e57"/>
+  <rect x="142" y="600" width="196" height="18" rx="9" fill="#7bf1a8"/>
+  <text x="378" y="615" fill="#a8c2d6" font-size="20" font-family="Space Grotesk, Segoe UI, sans-serif">Crack Resistance: 89%</text>
+
+  <rect x="142" y="640" width="220" height="18" rx="9" fill="#1a3e57"/>
+  <rect x="142" y="640" width="182" height="18" rx="9" fill="#81d6ff"/>
+  <text x="378" y="655" fill="#a8c2d6" font-size="20" font-family="Space Grotesk, Segoe UI, sans-serif">Drying Uniformity: 83%</text>
+
+  <text x="700" y="590" fill="#d6ecfa" font-size="22" font-family="Space Grotesk, Segoe UI, sans-serif">Estimated trial cycle reduction: 40%</text>
+  <text x="700" y="628" fill="#d6ecfa" font-size="22" font-family="Space Grotesk, Segoe UI, sans-serif">Estimated cost impact per line: -18%</text>
+  <text x="700" y="666" fill="#d6ecfa" font-size="22" font-family="Space Grotesk, Segoe UI, sans-serif">AI confidence: 88% (historical + document-grounded)</text>
+</svg>

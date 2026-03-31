@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="840" viewBox="0 0 1400 840">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#08121b"/>
+      <stop offset="100%" stop-color="#112a3d"/>
+    </linearGradient>
+  </defs>
+  <rect width="1400" height="840" fill="url(#bg)"/>
+  <rect x="76" y="64" width="1248" height="712" rx="24" fill="#0d1f2d" stroke="#21445d"/>
+  <text x="116" y="122" fill="#e0f2ff" font-size="34" font-family="Sora, Segoe UI, sans-serif" font-weight="800">QC Defect Analytics</text>
+
+  <rect x="116" y="156" width="820" height="280" rx="16" fill="#10283b" stroke="#2d5876"/>
+  <text x="146" y="204" fill="#d4e9f8" font-size="24" font-family="Sora, Segoe UI, sans-serif" font-weight="700">Defect Trend (Last 12 Weeks)</text>
+
+  <polyline points="150,380 220,340 290,360 360,315 430,328 500,286 570,301 640,258 710,272 780,240 850,220 910,206"
+            fill="none" stroke="#2ec5ff" stroke-width="6"/>
+  <circle cx="910" cy="206" r="8" fill="#7bf1a8"/>
+
+  <rect x="966" y="156" width="318" height="280" rx="16" fill="#0f3428" stroke="#2a715a"/>
+  <text x="994" y="204" fill="#d6ffe9" font-size="24" font-family="Sora, Segoe UI, sans-serif" font-weight="700">AI Alert</text>
+  <text x="994" y="248" fill="#caefd9" font-size="21" font-family="Space Grotesk, Segoe UI, sans-serif">Cracking trend detected</text>
+  <text x="994" y="282" fill="#caefd9" font-size="21" font-family="Space Grotesk, Segoe UI, sans-serif">on Line C during humid shifts.</text>
+  <text x="994" y="336" fill="#d6ffe9" font-size="22" font-family="Sora, Segoe UI, sans-serif" font-weight="700">Suggested Actions</text>
+  <text x="994" y="372" fill="#caefd9" font-size="20" font-family="Space Grotesk, Segoe UI, sans-serif">1. Extend cure ramp by 14 min</text>
+  <text x="994" y="404" fill="#caefd9" font-size="20" font-family="Space Grotesk, Segoe UI, sans-serif">2. Reduce solvent volatility index</text>
+
+  <rect x="116" y="468" width="1168" height="262" rx="16" fill="#102538" stroke="#2b5673"/>
+  <text x="146" y="516" fill="#d8ebf9" font-size="24" font-family="Sora, Segoe UI, sans-serif" font-weight="700">Plant KPI Snapshot</text>
+
+  <rect x="146" y="548" width="260" height="150" rx="14" fill="#132d42" stroke="#2f5d78"/>
+  <text x="176" y="592" fill="#d8ecfa" font-size="22" font-family="Sora, Segoe UI, sans-serif">Defect Rate</text>
+  <text x="176" y="644" fill="#7bf1a8" font-size="44" font-family="Sora, Segoe UI, sans-serif" font-weight="800">-28%</text>
+
+  <rect x="432" y="548" width="260" height="150" rx="14" fill="#132d42" stroke="#2f5d78"/>
+  <text x="462" y="592" fill="#d8ecfa" font-size="22" font-family="Sora, Segoe UI, sans-serif">Stability Score</text>
+  <text x="462" y="644" fill="#8bd7ff" font-size="44" font-family="Sora, Segoe UI, sans-serif" font-weight="800">89</text>
+
+  <rect x="718" y="548" width="260" height="150" rx="14" fill="#132d42" stroke="#2f5d78"/>
+  <text x="748" y="592" fill="#d8ecfa" font-size="22" font-family="Sora, Segoe UI, sans-serif">Cycle Time</text>
+  <text x="748" y="644" fill="#8bd7ff" font-size="44" font-family="Sora, Segoe UI, sans-serif" font-weight="800">-40%</text>
+
+  <rect x="1004" y="548" width="250" height="150" rx="14" fill="#132d42" stroke="#2f5d78"/>
+  <text x="1034" y="592" fill="#d8ecfa" font-size="22" font-family="Sora, Segoe UI, sans-serif">AI Confidence</text>
+  <text x="1034" y="644" fill="#ffd791" font-size="44" font-family="Sora, Segoe UI, sans-serif" font-weight="800">90%</text>
+</svg>

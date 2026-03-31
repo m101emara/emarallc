@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980" role="img" aria-labelledby="title desc">
+  <title id="title">Emara AI Platform Architecture</title>
+  <desc id="desc">Clean visual architecture showing data, processing, RAG intelligence, agent layer, and delivery layer for Emara AI.</desc>
+
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#07111a" />
+      <stop offset="100%" stop-color="#0b2436" />
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#102637" />
+      <stop offset="100%" stop-color="#0c1d2c" />
+    </linearGradient>
+    <linearGradient id="panelSoft" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#16374d" />
+      <stop offset="100%" stop-color="#10273a" />
+    </linearGradient>
+    <linearGradient id="highlight" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#2ec5ff" />
+      <stop offset="100%" stop-color="#7bf1a8" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="14" flood-color="#000000" flood-opacity="0.32" />
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="10" markerHeight="10" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#77dff6" />
+    </marker>
+  </defs>
+
+  <rect width="1600" height="980" fill="url(#bg)" />
+  <circle cx="210" cy="120" r="180" fill="#14384d" opacity="0.25" />
+  <circle cx="1410" cy="860" r="230" fill="#18493f" opacity="0.2" />
+
+  <text x="800" y="76" text-anchor="middle" font-family="Sora, Segoe UI, sans-serif" font-size="42" font-weight="800" fill="#e7f3fb">Emara AI Platform Architecture</text>
+  <text x="800" y="114" text-anchor="middle" font-family="Space Grotesk, Segoe UI, sans-serif" font-size="20" fill="#9fc4d8">Scalable multi-client intelligence stack for paint manufacturing</text>
+
+  <g filter="url(#shadow)">
+    <rect x="300" y="152" rx="20" ry="20" width="1000" height="150" fill="url(#panel)" stroke="#2d5874" stroke-width="2" />
+    <rect x="360" y="332" rx="20" ry="20" width="880" height="104" fill="url(#panelSoft)" stroke="#346783" stroke-width="2" />
+    <rect x="300" y="466" rx="20" ry="20" width="1000" height="130" fill="url(#panel)" stroke="#2d5874" stroke-width="2" />
+    <rect x="250" y="626" rx="20" ry="20" width="1100" height="170" fill="url(#panelSoft)" stroke="#3b7490" stroke-width="2" />
+    <rect x="330" y="826" rx="20" ry="20" width="940" height="114" fill="url(#panel)" stroke="#2d5874" stroke-width="2" />
+  </g>
+
+  <g font-family="Sora, Segoe UI, sans-serif" fill="#eaf6fd" text-anchor="middle">
+    <text x="800" y="194" font-size="30" font-weight="700">Data Sources</text>
+    <text x="800" y="372" font-size="27" font-weight="700">Data Processing</text>
+    <text x="800" y="507" font-size="30" font-weight="700">RAG Intelligence Layer</text>
+    <text x="800" y="670" font-size="31" font-weight="700">AI Agents Layer</text>
+    <text x="800" y="863" font-size="29" font-weight="700">Application and Delivery Layer</text>
+  </g>
+
+  <g font-family="Space Grotesk, Segoe UI, sans-serif" fill="#bad7e8" font-size="20">
+    <text x="350" y="232">
+      <tspan x="350" dy="0">- Formulations, raw material specs, and lab outcomes</tspan>
+      <tspan x="350" dy="30">- QC reports, SDS, TDS, and technical PDF documents</tspan>
+      <tspan x="350" dy="30">- Production logs, incidents, and process history</tspan>
+    </text>
+
+    <text x="800" y="410" text-anchor="middle">Parsing, normalization, embeddings, and indexing pipeline</text>
+
+    <text x="350" y="545">
+      <tspan x="350" dy="0">Vector database, semantic retrieval, and grounded prompting</tspan>
+      <tspan x="350" dy="30">Confidence scoring with traceable source references</tspan>
+    </text>
+
+    <rect x="330" y="702" rx="12" ry="12" width="300" height="46" fill="#143347" stroke="#2b6481" />
+    <rect x="650" y="702" rx="12" ry="12" width="300" height="46" fill="#143347" stroke="#2b6481" />
+    <rect x="970" y="702" rx="12" ry="12" width="300" height="46" fill="#143347" stroke="#2b6481" />
+
+    <text x="480" y="731" text-anchor="middle" fill="#d8eefb" font-size="19">Formulation Agent</text>
+    <text x="800" y="731" text-anchor="middle" fill="#d8eefb" font-size="19">QC and Defect Agent</text>
+    <text x="1120" y="731" text-anchor="middle" fill="#d8eefb" font-size="19">Documentation Agent</text>
+
+    <text x="800" y="900" text-anchor="middle">Web dashboard, API endpoints, workflow automation, and multi-tenant operations</text>
+  </g>
+
+  <g stroke="url(#highlight)" stroke-width="6" fill="none" marker-end="url(#arrow)">
+    <line x1="800" y1="304" x2="800" y2="326" />
+    <line x1="800" y1="436" x2="800" y2="458" />
+    <line x1="800" y1="596" x2="800" y2="618" />
+    <line x1="800" y1="796" x2="800" y2="818" />
+  </g>
+
+  <g fill="#7bf1a8" opacity="0.85">
+    <circle cx="800" cy="316" r="5" />
+    <circle cx="800" cy="448" r="5" />
+    <circle cx="800" cy="608" r="5" />
+    <circle cx="800" cy="808" r="5" />
+  </g>
+
+  <rect x="58" y="920" width="1484" height="20" rx="10" ry="10" fill="url(#highlight)" opacity="0.5" />
+</svg>

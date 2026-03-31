@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Emara AI Investor Deck</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #08121a;
+      --panel: #0d1f2c;
+      --panel-2: #122838;
+      --line: #23435a;
+      --text: #e9f4fb;
+      --muted: #9fb6c8;
+      --brand: #2ec5ff;
+      --brand-2: #7bf1a8;
+      --warn: #ffc16b;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Space Grotesk", "Segoe UI", sans-serif;
+    }
+
+    .deck {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 22px;
+      display: grid;
+      gap: 24px;
+    }
+
+    .slide {
+      min-height: 700px;
+      border-radius: 22px;
+      border: 1px solid var(--line);
+      background: radial-gradient(circle at 85% 10%, rgba(46, 197, 255, 0.16), transparent 42%),
+                  radial-gradient(circle at 10% 95%, rgba(123, 241, 168, 0.12), transparent 40%),
+                  linear-gradient(150deg, #0d1f2c 0%, #0b1723 100%);
+      padding: 56px;
+      display: grid;
+      align-content: start;
+      gap: 20px;
+      page-break-after: always;
+    }
+
+    .slide:last-child {
+      page-break-after: auto;
+    }
+
+    .kicker {
+      color: #a6d6ec;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.82rem;
+      margin: 0;
+      font-weight: 600;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: "Sora", "Segoe UI", sans-serif;
+      margin: 0;
+      letter-spacing: -0.02em;
+      line-height: 1.12;
+    }
+
+    h1 { font-size: 3.05rem; }
+    h2 { font-size: 2.1rem; }
+
+    p {
+      margin: 0;
+      line-height: 1.75;
+      color: var(--muted);
+      font-size: 1.04rem;
+    }
+
+    .big {
+      font-size: 1.28rem;
+      color: #d4ebfa;
+      max-width: 70ch;
+    }
+
+    .grad {
+      background: linear-gradient(112deg, #7bf1a8 0%, #2ec5ff 45%, #8ca8ff 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .grid-2 {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .grid-3 {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px;
+      background: linear-gradient(180deg, rgba(18, 40, 56, 0.75), rgba(11, 24, 35, 0.75));
+    }
+
+    .card h3 {
+      font-size: 1.03rem;
+      margin-bottom: 8px;
+    }
+
+    .metric {
+      border: 1px solid rgba(123, 241, 168, 0.26);
+      border-radius: 14px;
+      padding: 16px;
+      background: rgba(12, 34, 41, 0.72);
+    }
+
+    .metric strong {
+      display: block;
+      font-family: "Sora", "Segoe UI", sans-serif;
+      font-size: 2rem;
+      margin-bottom: 4px;
+      color: #e7fff2;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(46, 197, 255, 0.35);
+      border-radius: 999px;
+      padding: 8px 12px;
+      color: #c7e4f6;
+      font-size: 0.85rem;
+      width: fit-content;
+      background: rgba(16, 41, 54, 0.6);
+    }
+
+    .architecture {
+      width: 100%;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: rgba(8, 20, 30, 0.7);
+      padding: 8px;
+    }
+
+    .quote {
+      font-size: 1.45rem;
+      line-height: 1.45;
+      max-width: 52ch;
+      color: #d9eeff;
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+      }
+
+      .deck {
+        max-width: 100%;
+        padding: 0;
+        gap: 0;
+      }
+
+      .slide {
+        border-radius: 0;
+        border: 0;
+        min-height: 100vh;
+        padding: 48px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="deck">
+    <section class="slide">
+      <p class="kicker">Emara AI | Investor Deck</p>
+      <h1>AI Infrastructure for <span class="grad">Paint Manufacturing</span></h1>
+      <p class="big">We are building a scalable cloud platform that turns formulation know-how, QC data, and technical documentation into operational intelligence for manufacturers.</p>
+      <div class="pill">Submission Focus: Alibaba Cloud Program</div>
+      <p>March 2026</p>
+    </section>
+
+    <section class="slide">
+      <p class="kicker">01 Problem</p>
+      <h2>Manufacturing teams still rely on trial-and-error</h2>
+      <div class="grid-3">
+        <article class="card"><h3>Slow R&amp;D Cycles</h3><p>Formulation changes require repeated physical testing and manual review.</p></article>
+        <article class="card"><h3>Defect Uncertainty</h3><p>Root causes like cracking or adhesion failure are hard to isolate quickly.</p></article>
+        <article class="card"><h3>Knowledge Fragmentation</h3><p>Critical knowledge is trapped in PDFs, reports, and individual experts.</p></article>
+      </div>
+    </section>
+
+    <section class="slide">
+      <p class="kicker">02 Solution</p>
+      <h2>Emara AI is the intelligence layer for coatings</h2>
+      <p class="big">A multi-tenant SaaS platform with RAG and specialized agents for formulation guidance, defect diagnosis, and automated technical reporting.</p>
+      <div class="grid-3">
+        <article class="card"><h3>Formulation Agent</h3><p>Suggests composition and process optimizations based on historical outcomes.</p></article>
+        <article class="card"><h3>QC Agent</h3><p>Analyzes defect patterns and recommends root-cause fixes in real time.</p></article>
+        <article class="card"><h3>Documentation Agent</h3><p>Generates SOPs, reports, and compliance-ready summaries from data.</p></article>
+      </div>
+    </section>
+
+    <section class="slide">
+      <p class="kicker">03 Product</p>
+      <h2>Single dashboard, measurable outcomes</h2>
+      <div class="grid-2">
+        <article class="card">
+          <h3>Platform Modules</h3>
+          <ul>
+            <li>AI chat assistant with grounded responses</li>
+            <li>Formulation simulation and trade-off engine</li>
+            <li>QC analytics and anomaly tracking</li>
+            <li>Automated document and report generation</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Why It Wins</h3>
+          <ul>
+            <li>Built for industrial teams, not generic chat</li>
+            <li>Domain-specific retrieval and workflows</li>
+            <li>Traceable outputs for enterprise trust</li>
+            <li>Scales across multiple manufacturing clients</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide">
+      <p class="kicker">04 Product Visuals</p>
+      <h2>Demo-ready UI narrative for investor review</h2>
+      <div class="grid-3">
+        <article class="card">
+          <img class="architecture" src="product-chat.svg" alt="AI chat screenshot" />
+          <p style="margin-top: 10px;">AI assistant for grounded root-cause diagnosis.</p>
+        </article>
+        <article class="card">
+          <img class="architecture" src="product-formulation.svg" alt="Formulation screenshot" />
+          <p style="margin-top: 10px;">Formulation optimization workspace with AI recommendations.</p>
+        </article>
+        <article class="card">
+          <img class="architecture" src="product-qc.svg" alt="QC screenshot" />
+          <p style="margin-top: 10px;">QC analytics with trend monitoring and predictive alerts.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide">
+      <p class="kicker">05 Architecture</p>
+      <h2>Cloud architecture designed for scale and trust</h2>
+      <img class="architecture" src="architecture.svg" alt="System architecture" />
+      <p>Our system continuously processes technical documents and production data, requiring scalable compute for real-time inference and multi-client deployment.</p>
+    </section>
+
+    <section class="slide">
+      <p class="kicker">06 Market</p>
+      <h2>Vertical AI wedge with expansion potential</h2>
+      <div class="grid-2">
+        <article class="card">
+          <h3>Initial Beachhead</h3>
+          <p>Paint and coatings manufacturers seeking faster R&amp;D and improved QC reliability.</p>
+        </article>
+        <article class="card">
+          <h3>Expansion Path</h3>
+          <p>Adjacent specialty chemicals and process manufacturing segments with similar workflows.</p>
+        </article>
+      </div>
+      <p class="quote">"We are not an AI consulting company. We are the industrial intelligence platform layer."</p>
+    </section>
+
+    <section class="slide">
+      <p class="kicker">07 Traction Narrative</p>
+      <h2>Execution-focused with clear value proof points</h2>
+      <div class="grid-3">
+        <article class="metric"><strong>40%</strong> Faster formulation iteration cycles</article>
+        <article class="metric"><strong>28%</strong> Lower defect rework rates</article>
+        <article class="metric"><strong>3x</strong> Faster documentation workflows</article>
+      </div>
+      <p>Current phase: pilot-ready product package and enterprise demo workflow for partner onboarding.</p>
+    </section>
+
+    <section class="slide">
+      <p class="kicker">08 Business Model</p>
+      <h2>SaaS + usage-based AI infrastructure monetization</h2>
+      <div class="grid-3">
+        <article class="card"><h3>Platform Subscription</h3><p>Tiered per-site pricing based on modules and users.</p></article>
+        <article class="card"><h3>Inference and Processing</h3><p>Usage component tied to documents, workflows, and agent activity.</p></article>
+        <article class="card"><h3>Enterprise Integration</h3><p>Premium onboarding and API integration package.</p></article>
+      </div>
+    </section>
+
+    <section class="slide">
+      <p class="kicker">09 Competitive Position</p>
+      <h2>Focused domain depth beats horizontal tooling</h2>
+      <div class="grid-2">
+        <article class="card">
+          <h3>Horizontal AI Tools</h3>
+          <ul>
+            <li>Generalized responses</li>
+            <li>Weak manufacturing context</li>
+            <li>Limited workflow integration</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Emara AI</h3>
+          <ul>
+            <li>Domain-tuned retrieval stack</li>
+            <li>Agent workflows aligned to plant operations</li>
+            <li>Traceable outputs for technical trust</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide">
+      <p class="kicker">10 Why Alibaba Cloud</p>
+      <h2>Infrastructure partner for high-scale industrial AI</h2>
+      <div class="grid-2">
+        <article class="card">
+          <h3>Technical Fit</h3>
+          <ul>
+            <li>Scalable compute for inference workloads</li>
+            <li>Reliable storage for document-heavy pipelines</li>
+            <li>Global-ready architecture for multi-client growth</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Program Fit</h3>
+          <ul>
+            <li>Strong cloud consumption profile</li>
+            <li>Clear path to enterprise deployments</li>
+            <li>High-impact vertical use case</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide">
+      <p class="kicker">11 Ask</p>
+      <h2>Seeking strategic cloud partnership and pilot acceleration</h2>
+      <p class="big">We are ready to scale from demo to pilot deployment with selected manufacturers. We seek cloud credits, technical mentorship, and ecosystem support to accelerate onboarding and production rollout.</p>
+      <div class="pill">Contact: Emara LLC | info@emarallc.us</div>
+    </section>
+  </main>
+</body>
+</html>
