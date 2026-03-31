@@ -410,6 +410,57 @@
       min-width: min(580px, 100%);
     }
 
+    .contact-wrap {
+      padding: 24px;
+      border-radius: 16px;
+      border: 1px solid rgba(46, 197, 255, 0.26);
+      background: linear-gradient(130deg, rgba(12, 30, 44, 0.94), rgba(9, 22, 33, 0.94));
+      box-shadow: var(--shadow);
+    }
+
+    .contact-grid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .contact-field {
+      display: grid;
+      gap: 8px;
+    }
+
+    .contact-field label {
+      color: #d2e7f6;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .contact-field input,
+    .contact-field textarea {
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: rgba(7, 18, 28, 0.92);
+      color: #e8f4fc;
+      font-family: "Space Grotesk", "Segoe UI", sans-serif;
+      font-size: 0.96rem;
+      padding: 11px 12px;
+      outline: none;
+    }
+
+    .contact-field textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .full {
+      grid-column: 1 / -1;
+    }
+
+    .status-note {
+      color: #93c8dd;
+      font-size: 0.9rem;
+    }
+
     .admin-only,
     .admin-only-inline {
       display: none !important;
@@ -486,6 +537,10 @@
       .screens {
         grid-template-columns: 1fr;
       }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 560px) {
@@ -531,7 +586,7 @@
             Emara AI transforms formulation design, defect diagnosis, and technical reporting into a fast, repeatable, and data-grounded workflow powered by RAG and specialized AI agents.
           </p>
           <div class="hero-actions">
-            <a class="btn primary" href="#demo">Request Investor Demo</a>
+            <a class="btn primary" href="#contact">Request Investor Demo</a>
             <a class="btn secondary admin-only-inline" href="pitch-deck.html">Open Pitch Deck</a>
           </div>
         </div>
@@ -657,6 +712,44 @@
       </div>
     </section>
 
+    <section id="contact">
+      <div class="container">
+        <h2 class="section-title reveal">Request Investor Demo</h2>
+        <p class="section-copy reveal">Submit this form to draft an email directly to our team at info@emarallc.us. We usually respond within one business day.</p>
+        <div class="contact-wrap reveal">
+          <form id="investorForm" class="contact-grid">
+            <div class="contact-field">
+              <label for="fullName">Full Name</label>
+              <input id="fullName" name="fullName" type="text" required placeholder="Your name" />
+            </div>
+            <div class="contact-field">
+              <label for="workEmail">Work Email</label>
+              <input id="workEmail" name="workEmail" type="email" required placeholder="you@company.com" />
+            </div>
+            <div class="contact-field">
+              <label for="companyName">Company</label>
+              <input id="companyName" name="companyName" type="text" placeholder="Company name" />
+            </div>
+            <div class="contact-field">
+              <label for="roleName">Role</label>
+              <input id="roleName" name="roleName" type="text" placeholder="Founder, VC, Program Reviewer..." />
+            </div>
+            <div class="contact-field full">
+              <label for="demoMessage">What would you like to see in the demo?</label>
+              <textarea id="demoMessage" name="demoMessage" placeholder="Tell us your focus area: formulation optimization, QC analytics, architecture, pilots, pricing..."></textarea>
+            </div>
+            <div class="contact-field full">
+              <div style="display: flex; gap: 10px; flex-wrap: wrap; align-items: center;">
+                <button class="btn primary" type="submit">Send Request Email</button>
+                <a class="btn secondary" href="mailto:info@emarallc.us">Email Directly</a>
+              </div>
+              <div id="formStatus" class="status-note">Your email app will open with a prefilled message to info@emarallc.us.</div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
     <section id="pitch-link" class="admin-only">
       <div class="container">
         <h2 class="section-title reveal">Pitch Deck Page (Shareable Link)</h2>
@@ -740,6 +833,39 @@
       } catch {
         copyDeckBtn.textContent = 'Copy Failed';
       }
+    });
+
+    const investorForm = document.getElementById('investorForm');
+    const formStatus = document.getElementById('formStatus');
+    investorForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      const fullName = document.getElementById('fullName').value.trim();
+      const workEmail = document.getElementById('workEmail').value.trim();
+      const companyName = document.getElementById('companyName').value.trim();
+      const roleName = document.getElementById('roleName').value.trim();
+      const demoMessage = document.getElementById('demoMessage').value.trim();
+
+      const subject = `Investor Demo Request - ${companyName || 'Interested Organization'}`;
+      const bodyLines = [
+        'Hello Emara AI Team,',
+        '',
+        'I would like to request an investor demo.',
+        '',
+        `Name: ${fullName}`,
+        `Work Email: ${workEmail}`,
+        `Company: ${companyName || 'Not provided'}`,
+        `Role: ${roleName || 'Not provided'}`,
+        '',
+        'Demo Focus:',
+        demoMessage || 'General platform overview',
+        '',
+        `Source URL: ${window.location.href}`
+      ];
+
+      const mailto = `mailto:info@emarallc.us?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
+      window.location.href = mailto;
+      formStatus.textContent = 'Opening your email app with a prefilled investor request...';
     });
   </script>
 </body>
