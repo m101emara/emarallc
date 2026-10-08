@@ -121,13 +121,17 @@ jobs:
   ai_review:
     name: AI review (optional)
     needs: [report]
-    if: ${{ secrets.AI_API_KEY != '' }}
     runs-on: ubuntu-latest
+    # NOTE: the `secrets` context is NOT allowed in jobs.<job>.if — GitHub
+    # rejects the entire workflow file and zero jobs run. Gate on env instead.
+    env:
+      AI_API_KEY: ${{ secrets.AI_API_KEY }}
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - name: Generate review
+        if: ${{ env.AI_API_KEY != '' }}
         run: |
           BASE="origin/${{ github.base_ref }}"
           DIFF=$(git diff "$BASE"...HEAD | head -c 60000)
@@ -142,10 +146,11 @@ jobs:
               '{model:$m, messages:[{role:"user", content:$p}], max_tokens:1500}')")
           echo "$REVIEW" | jq -r '.choices[0].message.content // "AI review unavailable"' > /tmp/ai_review.md
         env:
-          AI_API_KEY: ${{ secrets.AI_API_KEY }}
           AI_BASE_URL: ${{ vars.AI_BASE_URL }}
           AI_MODEL: ${{ vars.AI_MODEL }}
-      - uses: actions/github-script@v7
+      - name: Post AI review
+        if: ${{ env.AI_API_KEY != '' }}
+        uses: actions/github-script@v7
         with:
           script: |
             const fs = require('fs');
