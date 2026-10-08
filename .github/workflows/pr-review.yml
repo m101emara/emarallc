@@ -66,6 +66,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       fails: ${{ steps.c.outputs.fails }}
+      changed_files: ${{ steps.c.outputs.changed_files }}
     steps:
       - uses: actions/checkout@v4
         with:
