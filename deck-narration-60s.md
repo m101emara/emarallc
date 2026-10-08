@@ -43,8 +43,8 @@ Slide 9 - Business Model (0:44-0:49)
 Slide 10 - Competitive Position (0:49-0:54)
 "Unlike horizontal AI tools, Emara AI is domain-tuned for industrial decisions with traceable outputs."
 
-Slide 11 - Why Alibaba + Ask (0:54-1:00)
-"With Alibaba Cloud support, we can accelerate pilot deployments and scale a multi-client industrial AI platform globally."
+Slide 11 - Why Cloud + Ask (0:54-1:00)
+"With cloud infrastructure partners, we can accelerate pilot deployments and scale a multi-client industrial AI platform globally."
 
 ## Delivery Notes
 
